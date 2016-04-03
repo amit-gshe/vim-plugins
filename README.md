@@ -3,7 +3,8 @@ It contains several popular vim plugins and useful when a fresh vim installation
 
 ## usage
 ```
-git clone https://github.com/amit-gshe/vim-plugins.git .vim && ln -s .vim/vimrc .vimrc
+git clone https://github.com/amit-gshe/vim-plugins.git ~/.vim
+ln -s ~/.vim/vimrc ~/.vimrc
 ```
 
 ## plugins
