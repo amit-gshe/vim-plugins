@@ -17,7 +17,7 @@ set showcmd
 " Converting tabs to spaces
 set expandtab
 
-set cindent
+set smartindent
 set shiftwidth=4
 set smarttab
 
