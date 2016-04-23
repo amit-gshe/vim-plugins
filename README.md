@@ -12,9 +12,6 @@ ln -s ~/.vim/vimrc ~/.vimrc
 ### [nerdtree](https://github.com/scrooloose/nerdtree)
 A tree explorer plugin for vim.
 
-### [vim-nerdtree-tabs](https://github.com/jistr/vim-nerdtree-tabs)
-This plugin aims at making NERDTree feel like a true panel, independent of tabs.
-
 ### [neocomplete.vim](https://github.com/Shougo/neocomplete.vim)
 neocomplete is the abbreviation of "neo-completion with cache". It provides keyword completion 
 system by maintaining a cache of keywords in the current buffer. neocomplete can be customized 
@@ -33,8 +30,5 @@ Vim plugin for intensely orgasmic commenting
 Syntastic is a syntax checking plugin for Vim that runs files through external syntax checkers 
 and displays any resulting errors to the user.
 
-### [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim)
-Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-
-### [vim-airline](https://github.com/vim-airline/vim-airline)
-Lean & mean status/tabline for vim that's light as air.
+### [vim-javascript](https://github.com/pangloss/vim-javascript)
+Vastly improved Javascript indentation and syntax support in Vim.
