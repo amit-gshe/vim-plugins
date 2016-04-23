@@ -16,7 +16,7 @@ set showcmd
 " Converting tabs to spaces
 set expandtab
 
-set cindent
+set smartindent
 set shiftwidth=4
 set smarttab
 
@@ -38,16 +38,23 @@ set title
 "set titlestring=\ %-25.55F\ %a%r%m titlelen=70
 
 " Keyboard remap (insert->inoremap normal->nnoremap visual->vnoremap)
- inoremap <unique> <c-h> <left>
- inoremap <unique> <c-j> <down>
- inoremap <unique> <c-k> <up>
- inoremap <unique> <c-l> <right>
- inoremap <silent> <C-S> <C-O>:update<CR>
+inoremap <unique> <c-h> <left>
+inoremap <unique> <c-j> <down>
+inoremap <unique> <c-k> <up>
+inoremap <unique> <c-l> <right>
+inoremap <silent> <C-S> <C-O>:update<CR>
 
 " Auto-save a file when you leave insert mode
 "autocmd InsertLeave * if expand('%') != '' |update|endif
 
-let g:nerdtree_tabs_open_on_console_startup=1
+" Auto open the nurdtree
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+map <F12> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" javascript-libraries-syntax
+let g:used_javascript_libs = 'jquery,angularjs'
 
 " Use emmet plugin only in html and css file
 let g:user_emmet_install_global = 0
@@ -55,14 +62,10 @@ autocmd FileType html,htm,xhtml,css,scss,jsp,php,asp,xml EmmetInstall
 " Press the ctrl+z to trigger the emmet plugin
 let g:user_emmet_leader_key = '<C-Z>'
 
-" ctrlp
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-
-let g:neocomplete#enable_at_startup = 1
+set omnifunc=syntaxcomplete#Complete
 " Note: This option must set it in .vimrc (_vimrc).
 " NOT IN .gvimrc (_gvimrc)!
 " Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
 " Use neocomplete.
 let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
