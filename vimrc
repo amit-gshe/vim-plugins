@@ -2,7 +2,6 @@ execute pathogen#infect()
 
 " GUI options
 if has("gui_running")
-    set lines=999 columns=999
     set guioptions-=m  "remove menu bar
     set guioptions-=T  "remove toolbar
     set guioptions-=r  "remove right-hand scroll bar
@@ -44,6 +43,11 @@ set title
  inoremap <unique> <c-k> <up>
  inoremap <unique> <c-l> <right>
  inoremap <silent> <C-S> <C-O>:update<CR>
+ 
+ "ctrl-s to save 
+noremap <silent> <C-S>          :update<CR>
+vnoremap <silent> <C-S>         <C-C>:update<CR>
+inoremap <silent> <C-S>         <C-O>:update<CR>
 
 " Auto-save a file when you leave insert mode
 "autocmd InsertLeave * if expand('%') != '' |update|endif
