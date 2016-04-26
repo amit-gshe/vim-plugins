@@ -53,13 +53,7 @@ inoremap <silent> <C-S>         <C-O>:update<CR>
 "autocmd InsertLeave * if expand('%') != '' |update|endif
 
 " Auto open the nurdtree
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-map <F12> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" javascript-libraries-syntax
-let g:used_javascript_libs = 'jquery,angularjs'
+map <F12> :NERDTreeTabsToggle<CR>
 
 " Use emmet plugin only in html and css file
 let g:user_emmet_install_global = 0
@@ -96,12 +90,12 @@ inoremap <expr><C-l>     neocomplete#complete_common_string()
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-    return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-    " For no inserting <CR> key.
-    "return pumvisible() ? "\<C-y>" : "\<CR>"
-endfunction
+"inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+"function! s:my_cr_function()
+"    return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+" For no inserting <CR> key.
+"return pumvisible() ? "\<C-y>" : "\<CR>"
+"endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
@@ -134,26 +128,22 @@ endif
 if !exists('g:neocomplete#force_omni_input_patterns')
     let g:neocomplete#force_omni_input_patterns = {}
 endif
-"let g:neocomplete#sources#omni#input_patterns.php =
-"\ '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+let g:neocomplete#sources#omni#input_patterns.php =
+    \ '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
 "let g:neocomplete#sources#omni#input_patterns.c =
 "\ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?'
 "let g:neocomplete#sources#omni#input_patterns.cpp =
 "\ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
 
-" For perlomni.vim setting.
-" https://github.com/c9s/perlomni.vim
-let g:neocomplete#sources#omni#input_patterns.perl =
-            \ '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
 
 " For smart TAB completion.
-"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
-"        \ <SID>check_back_space() ? "\<TAB>" :
-"        \ neocomplete#start_manual_complete()
-"  function! s:check_back_space() "{{{
-"    let col = col('.') - 1
-"    return !col || getline('.')[col - 1]  =~ '\s'
-"  endfunction"}}}
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
+        \ <SID>check_back_space() ? "\<TAB>" :
+        \ neocomplete#start_manual_complete()
+  function! s:check_back_space() "{{{
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+  endfunction"}}}
 
 " Compile the code based on file types
 map <F5> :call Compile()<CR>
