@@ -71,7 +71,6 @@ set omnifunc=syntaxcomplete#Complete
 " Note: This option must set it in .vimrc (_vimrc).
 " NOT IN .gvimrc (_gvimrc)!
 " Disable AutoComplPop.
-let g:acp_enableAtStartup = 1
 " Use neocomplete.
 let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
@@ -80,10 +79,10 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-    \ }
+            \ 'default' : '',
+            \ 'vimshell' : $HOME.'/.vimshell_hist',
+            \ 'scheme' : $HOME.'/.gosh_completions'
+            \ }
 
 " Define keyword.
 if !exists('g:neocomplete#keyword_patterns')
@@ -99,9 +98,9 @@ inoremap <expr><C-l>     neocomplete#complete_common_string()
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? "\<C-y>" : "\<CR>"
+    return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+    " For no inserting <CR> key.
+    "return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -130,10 +129,10 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
+    let g:neocomplete#sources#omni#input_patterns = {}
 endif
 if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns = {}
+    let g:neocomplete#force_omni_input_patterns = {}
 endif
 "let g:neocomplete#sources#omni#input_patterns.php =
 "\ '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
@@ -145,7 +144,7 @@ endif
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl =
-\ '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+            \ '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
 
 " For smart TAB completion.
 "inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
@@ -160,32 +159,32 @@ let g:neocomplete#sources#omni#input_patterns.perl =
 map <F5> :call Compile()<CR>
 function Compile()
     silent exec "w"
-	silent exec "!clear"
-	if &filetype == 'c' 
-		exec "!gcc % -o %<"
-	elseif &filetype == 'cpp'
-		exec "!g++ % -o %<"
-	elseif &filetype == 'java'
-		exec "!javac %"
-	else 
-		exec "echo 'Nothing to compile\!'"
-	endif
+    silent exec "!clear"
+    if &filetype == 'c' 
+        exec "!gcc % -o %<"
+    elseif &filetype == 'cpp'
+        exec "!g++ % -o %<"
+    elseif &filetype == 'java'
+        exec "!javac %"
+    else 
+        exec "echo 'Nothing to compile\!'"
+    endif
 endfunc 
 
 " Run the compiled excutable file
 map <F6> :call Run()<CR>
 function Run()
     silent exec "w"
-	silent exec "!clear"
-	if &filetype ==  'c'|| &filetype=='cpp' 
-	    exec "! ./%<"
-	elseif &filetype == 'java'
-		exec '!java %<'
+    silent exec "!clear"
+    if &filetype ==  'c'|| &filetype=='cpp' 
+        exec "! ./%<"
+    elseif &filetype == 'java'
+        exec '!java %<'
     elseif &filetype == 'python'
         exec '!python %'
-	else 
-		exec "echo 'Nothing to run\!'"
-	endif
+    else 
+        exec "echo 'Nothing to run\!'"
+    endif
 endfunc
 
 " Create the path to a new file if directory to the new file not exists
