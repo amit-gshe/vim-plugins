@@ -32,6 +32,7 @@ set fileencodings=utf8,gbk,gb2312,gb18030
 "set ignorecase
 set autoread
 set scrolloff=3
+set laststatus=2
 
 " Replace the title bar with the file path editing now
 set title
@@ -47,14 +48,16 @@ inoremap <silent> <C-S> <C-O>:update<CR>
 " Auto-save a file when you leave insert mode
 "autocmd InsertLeave * if expand('%') != '' |update|endif
 
+" color scheme
+let g:sierra_Campfire = 1
+" colorscheme sierra
+colorscheme dracula
+
 " Auto open the nurdtree
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <F12> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" javascript-libraries-syntax
-let g:used_javascript_libs = 'jquery,angularjs'
 
 " Use emmet plugin only in html and css file
 let g:user_emmet_install_global = 0
