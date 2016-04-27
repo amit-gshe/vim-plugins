@@ -54,6 +54,8 @@ inoremap <silent> <C-S>         <C-O>:update<CR>
 
 " Auto open the nurdtree
 map <F12> :NERDTreeTabsToggle<CR>
+let g:nerdtree_tabs_focus_on_files = 1
+let g:nerdtree_tabs_autofind = 1
 
 " Use emmet plugin only in html and css file
 let g:user_emmet_install_global = 0
