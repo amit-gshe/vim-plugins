@@ -32,6 +32,7 @@ set fileencodings=utf8,gbk,gb2312,gb18030
 "set ignorecase
 set autoread
 set scrolloff=3
+set laststatus=2
 
 " Replace the title bar with the file path editing now
 set title
@@ -52,7 +53,11 @@ inoremap <silent> <C-S>         <C-O>:update<CR>
 " Auto-save a file when you leave insert mode
 "autocmd InsertLeave * if expand('%') != '' |update|endif
 
-" Auto open the nurdtree
+" color scheme
+let g:sierra_Campfire = 1
+ colorscheme sierra
+"colorscheme dracula
+
 map <F12> :NERDTreeTabsToggle<CR>
 let g:nerdtree_tabs_focus_on_files = 1
 let g:nerdtree_tabs_autofind = 1
