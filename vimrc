@@ -12,6 +12,7 @@ endif
 set nu
 set ruler
 set showcmd 
+set clipboard=unnamed
 
 " Converting tabs to spaces
 set expandtab
