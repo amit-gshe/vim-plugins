@@ -61,6 +61,7 @@ let g:sierra_Campfire = 1
 map <F12> :NERDTreeTabsToggle<CR>
 let g:nerdtree_tabs_focus_on_files = 1
 let g:nerdtree_tabs_autofind = 1
+let g:nerdtree_tabs_open_on_gui_startup = 0
 
 " Use emmet plugin only in html and css file
 let g:user_emmet_install_global = 0
